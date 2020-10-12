@@ -20,4 +20,22 @@ The dependant variable is labeled 'SEVERITYCODE', using a code that corresponds 
 * 1 - prop damage
 * 0 - unknown
 
-SEVERITYCODE
+SEVERITYCODE contains a balanced mix of 1 and 2 codes and won't require under-sampling.  However other attributes such as 'LIGHTCOND' (which contains data related to the light conditions at the time of the collision), will require under-sampling in order to avoid a biased fit with respect to a prevalence of 'Daylight' entries.  The dataset is quite large so under-sampling shouldn't have a negative effect on accuracy.  The data will need to be cleaned due to the presence of null values for some attributes.
+
+Initial attributes that may have a notable relationship with accident severity:
+
+* LOCATION - location of collision using two street names.
+* JUNCTIONTYPE - category of junction at which collision occurred.
+* INATTENTIONIND - Whether or not collision was due to inattention (Y/N).
+* COLLISIONTYPE - type of collision (e.g. rear-ended).
+* PERSONCOUNT - total number of people involved in the collision.
+* PEDCOUNT - number of pedestrians involved in collision.
+* PEDCYLCOUNT - number of bicycles involved in collision.
+* VEHCOUNT - number of vehicles involved in collision.
+* INCDTTM - date and time of collision
+* WEATHER - description of weather conditions during collision.
+* ROADCOND - condition of road during collision.
+* LIGHTCOND - light conditions during collision.
+* SPEEDING - was speeding a factor in the collision (Y/N).
+* SEGLANEKEY - lane segment in which collision occurred.
+* CROSSWALKKEY - crosswalk at which collision occurred.
